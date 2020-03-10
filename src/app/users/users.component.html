@@ -1,0 +1,15 @@
+<p>I.E. 11 compatible Cross-browser Dynamic CSS Grid using grid-template-columns and a grid columns and grid rows fallback</p>
+<ul [ngStyle]="{
+  'grid-template-columns': 'repeat(' + gridTemplateCols + ', 1fr)',
+  '-ms-grid-columns': '(1fr)[' + this.gridTemplateCols + ']'
+}"
+>
+  <ng-container *ngFor="let user of this.users; let i = index;">
+    <li [ngStyle]="{
+      '-ms-grid-column': getGridColumnNum(i),
+      '-ms-grid-row': getGridRowNum(i)
+    }">
+      {{ user.name.first}}
+    </li>
+  </ng-container>
+</ul>
